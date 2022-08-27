@@ -29,8 +29,54 @@ Write a program that answers the following questions:
 
 ## Validation
 
-<!-- Challenge Expected Output -->
+*Sample Output With Correct Answers*
 
+```
+Top Three Elixirs
+*****************
+1. 3 wizards have the elixir "Love potion".
+2. 2 wizards have the elixir "First Love Beguiling Bubbles".
+3. 2 wizards have the elixir "Heartbreak Teardrops".
+
+The top elixir "Love potion" has the side effect of "Embarrassment on the part of the drinker".
+
+Elixirs That Share an Ingredient With "Love potion"
+****************************************************
+1.  Beautification Potion
+2.  First Love Beguiling Bubbles
+3.  Heartbreak Teardrops
+4.  Twilight Moonbeams
+5.  Amortentia
+6.  Cupid Crystals
+7.  Kissing Concoction
+8.  Calming Draught
+9.  Invigoration Draught
+10. Elixir to Induce Euphoria
+11. Felix Felicis
+12. Draught of Peace
+13. Potion N. 86
+
+Spell Types and Number of Spells With That Type
+************************************************
+1.  Charm                          x 160
+2.  Conjuration                    x 13
+3.  Transfiguration                x 30
+4.  DarkCharm                      x 13
+5.  Spell                          x 4
+6.  HealingSpell                   x 7
+7.  Jinx                           x 26
+8.  Curse                          x 23
+9.  MagicalTransportation          x 3
+10. Hex                            x 17
+11. CounterSpell                   x 1
+12. DarkArts                       x 2
+13. CounterJinx                    x 1
+14. CounterCharm                   x 2
+15. None                           x 1
+16. Untransfiguration              x 1
+17. BindingMagicalContract         x 1
+18. Vanishment                     x 1
+```
 <br/>
 
 ***
