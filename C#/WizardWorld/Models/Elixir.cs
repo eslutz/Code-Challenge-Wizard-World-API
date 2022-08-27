@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace WizardWorld.Models
 {
@@ -7,7 +8,7 @@ namespace WizardWorld.Models
 		[JsonPropertyName("id")]
 		public string Id { get; set; }
 		[JsonPropertyName("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 		[JsonPropertyName("effect")]
         public string? Effect { get; set; }
 		[JsonPropertyName("sideEffects")]
