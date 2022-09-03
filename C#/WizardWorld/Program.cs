@@ -13,22 +13,21 @@ internal class Program
 {
     private const string _baseURL = "https://wizard-world-api.herokuapp.com";
 
-
     static async Task Main(string[] args)
     {
         var client = new HttpService();
 
         var wizards = JsonSerializer.Deserialize<List<Wizard>>(await client.GetAsync(new Uri($"{_baseURL}/Wizards")));
-        var topThreeElixirIds = GetTopElixirs(wizards);
-        var topThreeElixirs = new Elixir[3];
-        for (int i = 0; i < 3; i++)
+        var topThreeElixirCounts = GetTopElixirs(wizards);
+        var topThreeElixirs = topThreeElixirCounts.Select(x => x.Key).ToArray();
+        for (int i = 0; i < topThreeElixirs.Length; i++)
         {
-            topThreeElixirs[i] = JsonSerializer.Deserialize<Elixir>(await client.GetAsync(new Uri($"{_baseURL}/Elixirs/{topThreeElixirIds[i].Key}")));
+            topThreeElixirs[i] = JsonSerializer.Deserialize<Elixir>(await client.GetAsync(new Uri($"{_baseURL}/Elixirs/{topThreeElixirCounts[i].Key.Id}")));
         }
         Console.WriteLine(CreateHeader("Top Three Elixirs"));
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < topThreeElixirs.Length; i++)
         {
-            Console.WriteLine($"{i+1}. {topThreeElixirIds[i].Value} wizards have the elixir \"{topThreeElixirs[i].Name}\".");
+            Console.WriteLine($"{i+1}. {topThreeElixirCounts[i].Value} wizards have the elixir \"{topThreeElixirCounts[i].Key.Name}\".");
         }
 
         Console.WriteLine($"\nThe top elixir \"{topThreeElixirs[0].Name}\" has the side effect of \"{topThreeElixirs[0].SideEffects}\".");
@@ -61,28 +60,29 @@ internal class Program
         return sb.ToString();
     }
 
-    private static KeyValuePair<string, int>[] GetTopElixirs(List<Wizard> wizards)
+    private static KeyValuePair<Elixir, int>[] GetTopElixirs(List<Wizard> wizards)
     {
-        var elixirs = new Dictionary<string, int>();
+        var elixirs = new Dictionary<Elixir, int>();
         foreach(var wizard in wizards)
         {
             if (wizard.Elixirs is not null)
             {
                 foreach (var elixir in wizard.Elixirs)
                 {
-                    if(!elixirs.ContainsKey(elixir.Id))
+                    if(elixirs.Any(x => x.Key.Id == elixir.Id))
                     {
-                        elixirs[elixir.Id] = 1;
+                        var key = elixirs.Where(x => x.Key.Id == elixir.Id).Select(x => x.Key).First();
+                        elixirs[key]++;
                     }
                     else
                     {
-                        elixirs[elixir.Id]++;
+                        elixirs[elixir] = 1;
                     }
                 }
             }
         }
 
-        var topThreeElixirs = (from elixir in elixirs orderby elixir.Value descending select elixir).Take(3).ToArray();
+        var topThreeElixirs = (from elixir in elixirs orderby elixir.Value descending, elixir.Key.Name select elixir).Take(3).ToArray();
 
         return topThreeElixirs;
     }
@@ -103,7 +103,7 @@ internal class Program
 
         }
 
-        return samesies;
+        return samesies.OrderBy(x => x.Name).ToList();
     }
 
     private static Dictionary<string, int> GetSpellTypes(List<Spell> spells)
@@ -125,6 +125,6 @@ internal class Program
             }
         }
 
-        return spellTypes;
+        return spellTypes.OrderByDescending(x => x.Value).ThenBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
     }
 }
