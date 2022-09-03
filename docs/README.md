@@ -19,7 +19,7 @@ This challenge will test your ability to make calls to an API, as well as your a
 ## Requirements
 
 Write a program that answers the following questions:
-
+*(results should be sorted alphabetically where applicable)*
 - From the different characters, what are the top 3 most common elixirs?
   - For each of the top three, how many wizards have that elixir?
 - What are the side effects of the top elixir?
@@ -35,46 +35,46 @@ Write a program that answers the following questions:
 Top Three Elixirs
 *****************
 1. 3 wizards have the elixir "Love potion".
-2. 2 wizards have the elixir "First Love Beguiling Bubbles".
-3. 2 wizards have the elixir "Heartbreak Teardrops".
+2. 2 wizards have the elixir "Beautification Potion".
+3. 2 wizards have the elixir "Bruise removal paste".
 
 The top elixir "Love potion" has the side effect of "Embarrassment on the part of the drinker".
 
 Elixirs That Share an Ingredient With "Love potion"
 ****************************************************
-1.  Beautification Potion
-2.  First Love Beguiling Bubbles
-3.  Heartbreak Teardrops
-4.  Twilight Moonbeams
-5.  Amortentia
-6.  Cupid Crystals
-7.  Kissing Concoction
-8.  Calming Draught
-9.  Invigoration Draught
-10. Elixir to Induce Euphoria
-11. Felix Felicis
-12. Draught of Peace
-13. Potion N. 86
+1.  Amortentia
+2.  Beautification Potion
+3.  Calming Draught
+4.  Cupid Crystals
+5.  Draught of Peace
+6.  Elixir to Induce Euphoria
+7.  Felix Felicis
+8.  First Love Beguiling Bubbles
+9.  Heartbreak Teardrops
+10. Invigoration Draught
+11. Kissing Concoction
+12. Potion N. 86
+13. Twilight Moonbeams
 
 Spell Types and Number of Spells With That Type
 ************************************************
 1.  Charm                          x 160
-2.  Conjuration                    x 13
-3.  Transfiguration                x 30
-4.  DarkCharm                      x 13
-5.  Spell                          x 4
-6.  HealingSpell                   x 7
-7.  Jinx                           x 26
-8.  Curse                          x 23
-9.  MagicalTransportation          x 3
-10. Hex                            x 17
-11. CounterSpell                   x 1
+2.  Transfiguration                x 30
+3.  Jinx                           x 26
+4.  Curse                          x 23
+5.  Hex                            x 17
+6.  Conjuration                    x 13
+7.  DarkCharm                      x 13
+8.  HealingSpell                   x 7
+9.  Spell                          x 4
+10. MagicalTransportation          x 3
+11. CounterCharm                   x 2
 12. DarkArts                       x 2
-13. CounterJinx                    x 1
-14. CounterCharm                   x 2
-15. None                           x 1
-16. Untransfiguration              x 1
-17. BindingMagicalContract         x 1
+13. BindingMagicalContract         x 1
+14. CounterJinx                    x 1
+15. CounterSpell                   x 1
+16. None                           x 1
+17. Untransfiguration              x 1
 18. Vanishment                     x 1
 ```
 <br/>
